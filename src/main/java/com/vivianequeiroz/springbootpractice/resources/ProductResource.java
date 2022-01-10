@@ -15,14 +15,14 @@ import com.vivianequeiroz.springbootpractice.repositories.ProductRepository;
 @RestController
 @RequestMapping(value = "/products")
 public class ProductResource {
-	
+
 	// get automatically an instance of ProductRepository
-	@Autowired 
-	private ProductRepository ProductRepository;
+	@Autowired
+	private ProductRepository productRepository;
 
 	@GetMapping
 	public ResponseEntity<List<Product>> findAllProducts() {
-		List<Product> productsList = ProductRepository.findAllProducts();
+		List<Product> productsList = productRepository.findAll();
 
 		return ResponseEntity.ok().body(productsList);
 	}
@@ -31,8 +31,8 @@ public class ProductResource {
 
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Product> findProductById(@PathVariable Long id) {
-		Product productFound = ProductRepository.findProductById(id);
-		
+		Product productFound = productRepository.findById(id).get();
+
 		return ResponseEntity.ok().body(productFound);
 	}
 

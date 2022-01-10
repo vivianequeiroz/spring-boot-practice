@@ -15,14 +15,14 @@ import com.vivianequeiroz.springbootpractice.repositories.CategoryRepository;
 @RestController
 @RequestMapping(value = "/categories")
 public class CategoryResource {
-	
+
 	// get automatically an instance of CategoryRepository
-	@Autowired 
+	@Autowired
 	private CategoryRepository categoryRepository;
 
 	@GetMapping
 	public ResponseEntity<List<Category>> findAllCategories() {
-		List<Category> list = categoryRepository.findAllCategories();
+		List<Category> list = categoryRepository.findAll();
 
 		return ResponseEntity.ok().body(list);
 	}
@@ -31,7 +31,7 @@ public class CategoryResource {
 
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Category> findCategoryById(@PathVariable Long id) {
-		Category categoryFound = categoryRepository.findCategoryById(id);
+		Category categoryFound = categoryRepository.findById(id).get(); // to obtain data inside the obj
 		return ResponseEntity.ok().body(categoryFound);
 	}
 
