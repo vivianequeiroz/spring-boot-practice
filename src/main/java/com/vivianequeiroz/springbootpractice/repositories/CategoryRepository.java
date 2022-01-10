@@ -11,6 +11,7 @@ import com.vivianequeiroz.springbootpractice.entities.Category;
 
 // a class which objective is access and manipulate data from a specific entity
 
+// indicates it can be instantiated with @Autowired
 @Component
 public class CategoryRepository {
 	//a collection with a pair of key and value. It is easier to locale an obj through id
