@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.vivianequeiroz.springbootpractice.entities.Category;
 import com.vivianequeiroz.springbootpractice.repositories.CategoryRepository;
 
+//CommandLineRunner -> an interface that every time the application start running, executes something
 @SpringBootApplication
 public class SpringBootPracticeApplication implements CommandLineRunner {
 	
@@ -24,7 +25,7 @@ public class SpringBootPracticeApplication implements CommandLineRunner {
 		Category category2 = new Category(2L, "Books");
 		
 		categoryRepository.save(category1);
-		categoryRepository.save(category2);
+		categoryRepository.save(category);
 		
 	}
 	
