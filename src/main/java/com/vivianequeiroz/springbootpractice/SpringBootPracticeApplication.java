@@ -46,7 +46,6 @@ public class SpringBootPracticeApplication implements CommandLineRunner {
 		productRepository.save(p2);
 		productRepository.save(p3);
 		productRepository.save(p4);
-
 	}
 
 }
